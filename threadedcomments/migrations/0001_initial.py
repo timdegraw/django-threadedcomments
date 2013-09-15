@@ -14,7 +14,7 @@ class Migration(SchemaMigration):
             ('title', self.gf('django.db.models.fields.TextField')(blank=True)),
             ('parent', self.gf('django.db.models.fields.related.ForeignKey')(default=None, related_name='children', null=True, blank=True, to=orm['threadedcomments.ThreadedComment'])),
             ('last_child', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['threadedcomments.ThreadedComment'], null=True, blank=True)),
-            ('tree_path', self.gf('django.db.models.fields.TextField')),
+            ('tree_path', self.gf('django.db.models.fields.TextField')(blank=True)),
         ))
         db.send_create_signal('threadedcomments', ['ThreadedComment'])
 
@@ -87,7 +87,7 @@ class Migration(SchemaMigration):
             'last_child': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['threadedcomments.ThreadedComment']", 'null': 'True', 'blank': 'True'}),
             'parent': ('django.db.models.fields.related.ForeignKey', [], {'default': 'None', 'related_name': "'children'", 'null': 'True', 'blank': 'True', 'to': "orm['threadedcomments.ThreadedComment']"}),
             'title': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
-            'tree_path': ('django.db.models.fields.TextField', [], {})
+            'tree_path': ('django.db.models.fields.TextField', [], {'blank': 'True'})
         }
     }
 
